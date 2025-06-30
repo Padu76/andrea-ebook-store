@@ -37,7 +37,7 @@
 
         /* Modal specific styles */
         .modal {
-            display: none; /* Hidden by default */
+            display: none; /* Hidden by default - CORREZIONE: Impostato a 'none' di default */
             position: fixed; /* Stay in place */
             z-index: 1000; /* Sit on top */
             left: 0;
@@ -46,9 +46,8 @@
             height: 100%; /* Full height */
             overflow: auto; /* Enable scroll if needed */
             background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
-            display: flex;
-            justify-content: center;
-            align-items: center;
+            justify-content: center; /* Center horizontally when displayed */
+            align-items: center; /* Center vertically when displayed */
         }
         .modal-content {
             background-color: #fefefe;
@@ -249,7 +248,7 @@
         </div>
     </footer>
 
-    <!-- Modale per Messaggi (Mantenuto per altre notifiche future, ma non usato per i link Gumroad) -->
+    <!-- Modale per Messaggi -->
     <div id="myModal" class="modal">
         <div class="modal-content">
             <span class="close-button" onclick="closeModal()">&times;</span>
@@ -344,5 +343,4 @@
 
 </body>
 </html>
-
 
