@@ -3,184 +3,204 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ebook di Andrea Padoan - Prezzi e Dettagli</title>
+    <title>Andrea Padoan Personal Trainer - I Tuoi Ebook per il Fitness</title>
     <!-- Tailwind CSS CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Google Fonts: Inter for general text, and a more striking font for titles if desired (e.g., Montserrat) -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <style>
         body {
             font-family: 'Inter', sans-serif;
-            background-color: #121212; /* Very dark gray for a premium feel */
-            color: #e0e0e0; /* Light gray for text */
-            line-height: 1.6;
+            background-color: #f8fafc; /* Tailwind: bg-gray-50 */
         }
-        h1, h2 {
-            font-family: 'Montserrat', sans-serif;
-            color: #f97316; /* Orange accent */
+        /* Custom gradient for hero button, inspired by orange tones */
+        .btn-gradient {
+            background-image: linear-gradient(to right, #f97316, #ea580c); /* Tailwind: from-orange-500 to-orange-700 */
         }
-        /* Custom gradient for main buttons */
-        .btn-primary-gradient {
-            background-image: linear-gradient(to right, #f97316, #ea580c); /* Orange tones */
-            transition: all 0.3s ease-in-out;
+        .btn-gradient:hover {
+            background-image: linear-gradient(to right, #fb923c, #f97316); /* Darker on hover */
         }
-        .btn-primary-gradient:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(249, 115, 22, 0.4);
-            background-image: linear-gradient(to right, #fb923c, #f97316); /* Lighter orange on hover */
+        .card-shadow {
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
         }
-        /* Style for the home button */
-        .home-button {
-            background-color: #3b82f6; /* Blue background */
-            color: white;
-            padding: 0.75rem 1.5rem;
-            border-radius: 9999px; /* Fully rounded */
-            font-weight: 600;
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .home-button:hover {
-            background-color: #2563eb; /* Darker blue on hover */
-            transform: scale(1.05);
-        }
-        /* Card styling */
-        .product-card {
-            background-color: #1f1f1f; /* Slightly lighter dark gray for cards */
-            border: 1px solid #333;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-        }
-        .price-badge {
-            background-color: #f97316; /* Orange */
-            color: white;
-            font-weight: bold;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px; /* Pill shape */
-            display: inline-block;
-            margin-bottom: 0.75rem;
-        }
-        .old-price {
-            text-decoration: line-through;
-            color: #999;
-            font-size: 0.9em;
-            margin-right: 0.5rem;
-        }
-        .download-button {
-            background-color: #3b82f6; /* Blue for download */
-            transition: background-color 0.3s ease;
-        }
-        .download-button:hover {
-            background-color: #2563eb;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            h1 {
-                font-size: 3rem;
+        /* Pulse animation for hero headline */
+        @keyframes pulse-slow {
+            0%, 100% {
+                opacity: 1;
             }
-            .product-card {
-                padding: 1.5rem;
+            50% {
+                opacity: 0.9;
             }
+        }
+        .animate-pulse-slow {
+            animation: pulse-slow 3s infinite ease-in-out;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col">
+<body class="antialiased text-gray-900">
 
     <!-- Header Section -->
-    <header class="bg-gray-900 shadow-lg py-4 border-b-4 border-orange-600">
+    <header class="bg-gray-900 shadow-sm py-4 border-b-2 border-orange-600">
         <div class="container mx-auto px-4 flex justify-between items-center">
-            <a href="https://tribucoach.netlify.app" class="text-3xl font-extrabold text-orange-500 hover:text-orange-400 transition duration-300 ease-in-out p-2 rounded-lg">
-                TribuCoach Ebook
-            </a>
-            <!-- Home Button in Header -->
-            <a href="https://tribucoach.netlify.app/" class="home-button">
-                Home
-            </a>
+            <a href="#" class="text-2xl font-bold text-orange-600 rounded-md p-2">Andrea Padoan - Ebook</a>
+            <nav>
+                <ul class="flex space-x-6">
+                    <li><a href="#prodotti" class="text-orange-500 hover:text-orange-400 font-medium transition duration-300 ease-in-out rounded-md p-2 hover:bg-gray-800">Ebook</a></li>
+                    <li><a href="#chi-sono" class="text-orange-500 hover:text-orange-400 font-medium transition duration-300 ease-in-out rounded-md p-2 hover:bg-gray-800">Chi Sono</a></li>
+                    <li><a href="#contatti" class="text-orange-500 hover:text-orange-400 font-medium transition duration-300 ease-in-out rounded-md p-2 hover:bg-gray-800">Contatti</a></li>
+                </ul>
+            </nav>
         </div>
     </header>
 
-    <main class="flex-grow container mx-auto px-4 py-12">
-        <section id="prodotti" class="text-center mb-16">
-            <h1 class="text-6xl md:text-7xl font-extrabold mb-6">I Miei Ebook</h1>
-            <p class="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto">
-                Trasforma il tuo corpo e la tua mente con guide pratiche e programmi di allenamento e alimentazione.
+    <!-- Hero Section -->
+    <section class="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-20 px-4 text-center rounded-md shadow-lg my-8 mx-auto max-w-6xl">
+        <div class="container mx-auto">
+            <h1 class="text-5xl md:text-6xl font-extrabold leading-tight mb-6 animate-pulse-slow">
+                Trasforma il Tuo Corpo e la Tua Mente
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                Scopri la mia collezione esclusiva di ebook digitali: guide essenziali per il tuo percorso di fitness e benessere.
             </p>
-        </section>
+            <a href="#prodotti" class="inline-block bg-white text-orange-700 font-bold py-3 px-8 rounded-full text-lg hover:bg-gray-100 transition duration-300 ease-in-out shadow-lg">
+                Esplora i Miei Ebook
+            </a>
+        </div>
+    </section>
 
-        <section class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-            <!-- Ebook 1: IL WAVE SYSTEM -->
-            <div class="product-card rounded-xl overflow-hidden shadow-xl p-6 flex flex-col items-center">
-                <img src="/il-wave-system.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/f97316/ffffff?text=IL+WAVE+SYSTEM';" alt="Copertina Ebook Il Wave System" class="w-full h-56 object-cover rounded-lg mb-4 shadow-md">
-                <h2 class="text-3xl font-bold text-center mb-2">IL WAVE SYSTEM</h2>
-                <p class="text-gray-400 text-sm text-center flex-grow mb-4">
-                    6 CICLI COMPLETI DI ALLENAMENTO PER RAGGIUNGERE LA TUA FORMA FISICA MAI RAGGIUNTA.
-                </p>
-                <div class="flex items-baseline mb-4">
-                    <span class="old-price text-lg">€49.99</span>
-                    <span class="price-badge text-2xl">€29.99</span>
+    <!-- Products Section -->
+    <section id="prodotti" class="py-16 px-4 bg-gray-50">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-extrabold text-center text-gray-900 mb-12">I Miei Ebook per il Tuo Successo</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+
+                <!-- Ebook Card: 50 workout da viaggio (Gratuito) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 card-shadow border border-gray-200">
+                    <img src="50-workout-viaggio.jpg" alt="Copertina 50 Workout da Viaggio" class="w-full h-60 object-cover rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">50 WORKOUT DA VIAGGIO</h3>
+                        <p class="text-gray-700 text-sm mb-4 text-justify">
+                            La tua guida essenziale per rimanere in forma ovunque tu sia, con 50 allenamenti completi che non richiedono attrezzature speciali. Perfetto per chi è sempre in movimento!
+                        </p>
+                        <div class="flex justify-between items-center mb-5">
+                            <span class="text-2xl font-bold text-green-600">GRATUITO</span>
+                            <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 ease-in-out shadow-md">
+                                Scarica Gratis
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://landing-ebook.netlify.app/COVER_Wawe%20system.pdf" target="_blank" class="btn-primary-gradient text-white font-semibold py-3 px-8 rounded-full w-full text-center">
-                    Acquista Ora
-                </a>
-            </div>
 
-            <!-- Ebook 2: In Forma da 2 Milioni di Anni -->
-            <div class="product-card rounded-xl overflow-hidden shadow-xl p-6 flex flex-col items-center">
-                <img src="/in-forma-2-milioni-anni.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/ea580c/ffffff?text=IN+FORMA+DA+2+MILIONI+ANNI';" alt="Copertina Ebook In Forma da 2 Milioni di Anni" class="w-full h-56 object-cover rounded-lg mb-4 shadow-md">
-                <h2 class="text-3xl font-bold text-center mb-2">In Forma da 2 Milioni di Anni</h2>
-                <p class="text-gray-400 text-sm text-center flex-grow mb-4">
-                    IL PROGRAMMA ALIMENTARE PER TRASFORMARE IL TUO CORPO IN UNA MACCHINA BRUCIA GRASSI.
-                </p>
-                <div class="flex items-baseline mb-4">
-                    <span class="old-price text-lg">€39.99</span>
-                    <span class="price-badge text-2xl">€19.99</span>
+                <!-- Ebook Card: In Forma da 2 Milioni di Anni (19.90€) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 card-shadow border border-gray-200">
+                    <img src="in-forma-2-milioni-anni.jpg" alt="Copertina In Forma da 2 Milioni di Anni" class="w-full h-60 object-cover rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">IN FORMA DA 2 MILIONI DI ANNI</h3>
+                        <p class="text-gray-700 text-sm mb-4 text-justify">
+                            Scopri il programma alimentare per trasformare il tuo corpo in una macchina brucia grassi, basato sui principi evolutivi per un benessere duraturo.
+                        </p>
+                        <div class="flex justify-between items-center mb-5">
+                            <span class="text-2xl font-bold text-orange-700">€ 19.90</span>
+                            <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 ease-in-out shadow-md">
+                                Acquista Ora
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://landing-ebook.netlify.app/COVER_in%20forma%20da%202%20milioni%20di%20anni.pdf" target="_blank" class="btn-primary-gradient text-white font-semibold py-3 px-8 rounded-full w-full text-center">
-                    Acquista Ora
-                </a>
-            </div>
 
-            <!-- Ebook 3: 50 WORKOUT da viaggio -->
-            <div class="product-card rounded-xl overflow-hidden shadow-xl p-6 flex flex-col items-center">
-                <img src="/50-workout-viaggio.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/fbbf24/ffffff?text=50+WORKOUT+DA+VIAGGIO';" alt="Copertina Ebook 50 Workout da Viaggio" class="w-full h-56 object-cover rounded-lg mb-4 shadow-md">
-                <h2 class="text-3xl font-bold text-center mb-2">50 WORKOUT da viaggio</h2>
-                <p class="text-gray-400 text-sm text-center flex-grow mb-4">
-                    50 ALLENAMENTI ESSENZIALI PER MANTENERTI IN FORMA OVUNQUE TU SIA.
-                </p>
-                <div class="flex items-baseline mb-4">
-                    <span class="old-price text-lg">€29.99</span>
-                    <span class="price-badge text-2xl">€14.99</span>
+                <!-- Ebook Card: Il Wave System (14.90€) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 card-shadow border border-gray-200">
+                    <img src="il-wave-system.jpg" alt="Copertina Il Wave System" class="w-full h-60 object-cover rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">IL WAVE SYSTEM</h3>
+                        <p class="text-gray-700 text-sm mb-4 text-justify">
+                            6 cicli completi di allenamento per costruire il corpo perfetto e raggiungere la tua forma fisica mai raggiunta, progredendo in forza, massa e definizione.
+                        </p>
+                        <div class="flex justify-between items-center mb-5">
+                            <span class="text-2xl font-bold text-orange-700">€ 14.90</span>
+                            <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 ease-in-out shadow-md">
+                                Acquista Ora
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://landing-ebook.netlify.app/50workoutdaviaggio%20copertina.pdf" target="_blank" class="btn-primary-gradient text-white font-semibold py-3 px-8 rounded-full w-full text-center">
-                    Acquista Ora
-                </a>
-            </div>
 
-            <!-- Ebook 4: BODY UNDER CONSTRUCTION VOL: 1 -->
-            <div class="product-card rounded-xl overflow-hidden shadow-xl p-6 flex flex-col items-center">
-                <img src="/body-under-construction.jpg" onerror="this.onerror=null;this.src='https://placehold.co/600x400/10b981/ffffff?text=BODY+UNDER+CONSTRUCTION';" alt="Copertina Ebook Body Under Construction Vol 1" class="w-full h-56 object-cover rounded-lg mb-4 shadow-md">
-                <h2 class="text-3xl font-bold text-center mb-2">BODY UNDER CONSTRUCTION VOL: 1</h2>
-                <p class="text-gray-400 text-sm text-center flex-grow mb-4">
-                    100 ALLENAMENTI, PER UNA FORMA PERFETTA 365 GIORNI ALL'ANNO.
-                </p>
-                <div class="flex items-baseline mb-4">
-                    <span class="old-price text-lg">€59.99</span>
-                    <span class="price-badge text-2xl">€34.99</span>
+                <!-- Ebook Card: Body Under Construction (29.90€) -->
+                <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 card-shadow border border-gray-200">
+                    <img src="body-under-construction.jpg" alt="Copertina Body Under Construction" class="w-full h-60 object-cover rounded-t-xl">
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">BODY UNDER CONSTRUCTION</h3>
+                        <p class="text-gray-700 text-sm mb-4 text-justify">
+                            Volume 1: 100 allenamenti completi per una forma perfetta 365 giorni all'anno. La tua risorsa definitiva per un allenamento costante ed efficace.
+                        </p>
+                        <div class="flex justify-between items-center mb-5">
+                            <span class="text-2xl font-bold text-orange-700">€ 29.90</span>
+                            <button class="bg-orange-600 hover:bg-orange-700 text-white font-bold py-2 px-5 rounded-full transition duration-300 ease-in-out shadow-md">
+                                Acquista Ora
+                            </button>
+                        </div>
+                    </div>
                 </div>
-                <a href="https://landing-ebook.netlify.app/buc100allenamenti.pdf" target="_blank" class="btn-primary-gradient text-white font-semibold py-3 px-8 rounded-full w-full text-center">
-                    Acquista Ora
-                </a>
-            </div>
-        </section>
-    </main>
 
-    <footer class="bg-gray-900 text-gray-400 text-center py-8 mt-12">
-        <div class="container mx-auto px-4">
-            <p>&copy; 2024 Andrea Padoan - Personal Trainer Verona. Tutti i diritti riservati.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Call to Action / Benefits Section -->
+    <section id="chi-sono" class="bg-gray-900 text-white py-20 px-4 text-center my-8 mx-auto max-w-6xl rounded-md shadow-lg">
+        <div class="container mx-auto">
+            <h2 class="text-4xl font-extrabold mb-6 text-orange-500">Perché Scegliere gli Ebook di Andrea Padoan?</h2>
+            <p class="text-xl md:text-2xl mb-8 opacity-90">
+                Come Personal Trainer esperto, ho creato questi ebook per offrirti contenuti pratici e basati sull'esperienza, per raggiungere i tuoi obiettivi di fitness in modo efficace.
+            </p>
+            <div class="flex flex-col md:flex-row justify-center items-center space-y-6 md:space-y-0 md:space-x-10">
+                <div class="flex items-center text-left">
+                    <svg class="w-10 h-10 text-orange-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Competenza Certificata</h3>
+                        <p class="text-base opacity-80">Contenuti scritti da professionisti con esperienza sul campo.</p>
+                    </div>
+                </div>
+                <div class="flex items-center text-left">
+                    <svg class="w-10 h-10 text-orange-500 mr-4" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path></svg>
+                    <div>
+                        <h3 class="text-xl font-semibold mb-1">Accesso Immediato</h3>
+                        <p class="text-base opacity-80">Scarica subito i tuoi ebook dopo l'acquisto, senza attese.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contatti" class="py-16 px-4 bg-gray-100">
+        <div class="container mx-auto text-center max-w-2xl">
+            <h2 class="text-4xl font-extrabold text-gray-900 mb-8">Contattami per Maggiori Informazioni</h2>
+            <p class="text-lg text-gray-700 mb-8">
+                Sono qui per supportarti nel tuo percorso. Se hai domande sui miei ebook o sui miei servizi di personal training, non esitare a scrivermi.
+            </p>
+            <a href="mailto:info@personaltrainerverona.it" class="inline-block bg-orange-600 hover:bg-orange-700 text-white font-bold py-3 px-8 rounded-full text-lg transition duration-300 ease-in-out shadow-lg">
+                Invia una Email
+            </a>
+            <p class="text-md text-gray-600 mt-4">
+                Oppure visita il mio sito principale: <a href="https://www.personaltrainerverona.it" target="_blank" class="text-orange-600 hover:underline">www.personaltrainerverona.it</a>
+            </p>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="bg-gray-900 text-white py-8 px-4 mt-8 rounded-t-lg">
+        <div class="container mx-auto text-center">
+            <p class="text-sm">&copy; 2025 Andrea Padoan Personal Trainer. Tutti i diritti riservati.</p>
+            <div class="flex justify-center space-x-6 mt-4">
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Privacy Policy</a>
+                <a href="#" class="text-gray-400 hover:text-white transition duration-300 ease-in-out">Termini e Condizioni</a>
+            </div>
         </div>
     </footer>
 
 </body>
 </html>
+
+
+
